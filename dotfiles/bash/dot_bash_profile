@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# *** LOAD ********************************************************************
+
+# Load the default .profile
+[[ -s "${HOME}/.profile" ]] && source "${HOME}/.profile"
+
+
+# *** TERMINAL ****************************************************************
+
+# |*| - Terminal Settings
+#
+# See: http://blog.taylormcgann.com/2012/06/13/customize-your-shell-command-prompt/
+#
+export PS1="\[\033[0;95m\]\! \[\033[36m\]\u\[\033[m\]@\\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\n\$> "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+
+# *** ALIAS *******************************************************************
+
+# Refresh Terminal
+alias refresh='source ~/.bash_profile && clear'
+
+
+# *** OSX ALIAS ***************************************************************
+
+if [ "$(uname)" == "Darwin" ]; then
+    # Show/Hide Files in Finder
+    alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+    alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+fi
+
+
+# *** Golang ******************************************************************
+
+export GOPATH="${HOME}/Work/dev/golang"
+export PATH=$PATH:$GOPATH/bin
+
+
+# *** Kubernetes **************************************************************
+
+# bash-completion package should be installed first.
+export PATH=${PATH}:/Users/Temple/Work/bin/google-cloud-sdk/bin
+source <(kubectl completion bash)
+
+
+# *** TemOS *******************************************************************
+
+export TEMOS_HOME=${HOME}/temos
+source ${TEMOS_HOME}/init.sh
+export PATH=${PATH}:${TEMOS_HOME}/bin
+
+
+# *** END  ********************************************************************
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/Temple/temos/install/gcloud/google-cloud-sdk/path.bash.inc' ]; then source '/Users/Temple/temos/install/gcloud/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/Temple/temos/install/gcloud/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/Temple/temos/install/gcloud/google-cloud-sdk/completion.bash.inc'; fi

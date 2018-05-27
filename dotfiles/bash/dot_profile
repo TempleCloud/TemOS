@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# *** OS **********************************************************************
+
+os_uname="$(uname -s)"
+case "${os_uname}" in
+    Linux*)  _os=linux;;
+    Darwin*) _os=osx;;
+    CYGWIN*) _os=cygwin;;
+    MINGW*)  _os=mingw;;
+    *)       _os="UNKNOWN:${os_uname}"
+esac
