@@ -34,3 +34,5 @@ fi
 # Install minpack managed components.
 vim -E -c PackClean -c q 2> /dev/null
 vim -E -c PackUpdate -c q 2> /dev/null
+
+echo "Vim packages installed. If necessary run 'PackUpdate' from inside vim."
