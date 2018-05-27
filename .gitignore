@@ -1,2 +1,6 @@
+
+# Do not manage temos directories.
+bin
+
 # Skip VCCode config.
 .vscode
