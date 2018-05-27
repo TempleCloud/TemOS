@@ -1,29 +1,34 @@
 #!/bin/bash
 
-ID=$(date +"%Y-%m#%d%H:%M:%S")
-BASH_CONFIG="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Configure bash profiles. Assumes: .profile < .bash_profile < .bashrc
+#
+function _activate() {
+    local id=$(date +"%Y-%m#%d%H:%M:%S")
+    local bash_config="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Link .profile file.
-PROFILE=${HOME}/.profile
-if [ -f "${PROFILE}" ] && [ ! -h "${PROFILE}" ]; then
-    mv "${PROFILE}" "${PROFILE}-temos-backup-${ID}"
-fi
-ln -sf ${BASH_CONFIG}/dot_profile "${PROFILE}"
-echo "Activated: ${PROFILE}"
+    # Link .profile file.
+    local profile=${HOME}/.profile
+    if [ -f "${profile}" ] && [ ! -h "${profile}" ]; then
+        mv "${profile}" "${profile}-temos-backup-${id}"
+    fi
+    ln -sf ${bash_config}/dot_profile "${profile}"
+    echo "Activated: ${profile}"
 
-# Link .bash_profile file.
-BASH_PROFILE=${HOME}/.bash_profile
-if [ -f "${BASH_PROFILE}" ] && [ ! -h "${BASH_PROFILE}" ]; then
-    mv "${BASH_PROFILE}" "${BASH_PROFILE}-temos-backup-${ID}"
-fi
-ln -sf ${BASH_CONFIG}/dot_bash_profile "${BASH_PROFILE}"
-echo "Activated: ${BASH_PROFILE}"
+    # Link .bash_profile file.
+    local bash_profile=${HOME}/.bash_profile
+    if [ -f "${bash_profile}" ] && [ ! -h "${bash_profile}" ]; then
+        mv "${bash_profile}" "${bash_profile}-temos-backup-${id}"
+    fi
+    ln -sf ${bash_config}/dot_bash_profile "${bash_profile}"
+    echo "Activated: ${bash_profile}"
 
-# Link .bashrc file.
-BASHRC=${HOME}/.bashrc
-if [ -f "${BASHRC}" ] &&  [ ! -h "${BASHRC}" ]; then
-    mv "${BASHRC}" "${BASHRC}-temos-backup-${ID}"
-fi
-ln -sf ${BASH_CONFIG}/dot_bashrc "${BASHRC}"
-echo "Activated: ${BASHRC}"
-source "${BASHRC}"
+    # Link .bashrc file.
+    local bashrc=${HOME}/.bashrc
+    if [ -f "${bashrc}" ] &&  [ ! -h "${bashrc}" ]; then
+        mv "${bashrc}" "${bashrc}-temos-backup-${id}"
+    fi
+    ln -sf ${bash_config}/dot_bashrc "${bashrc}"
+    echo "Activated: ${bashrc}"
+
+    source "${bashrc}"
+} && _activate
