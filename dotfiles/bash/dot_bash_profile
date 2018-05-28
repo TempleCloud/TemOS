@@ -32,16 +32,22 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 
-# *** Golang ******************************************************************
+# *** golang ******************************************************************
 
 export GOPATH="${HOME}/Work/dev/golang"
 export PATH=$PATH:$GOPATH/bin
 
 
-# *** Kubernetes **************************************************************
+# *** gcloud ******************************************************************
+
+if [ -d ${PATH}:"${HOME}/temos/bin/google-cloud-sdk/bin" ]; then
+    export PATH=${PATH}:"${HOME}/temos/bin/google-cloud-sdk/bin"
+fi
+
+
+# *** kubernetes **************************************************************
 
 # bash-completion package should be installed first.
-export PATH=${PATH}:"${HOME}//Work/bin/google-cloud-sdk/bin"
 source <(kubectl completion bash)
 
 
