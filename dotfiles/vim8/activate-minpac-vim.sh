@@ -1,21 +1,28 @@
 #!/bin/bash
 
-# Install the 'minpac' Vim configuration.
+# Install 'minpack' .vimrc dotfile configuration.
 
 # Configure Vim.
 #
 function activate() {
-    # Create a .vimrc symlink to versioned minpack-vimrc if it does not exist.
+    local id=$(date +"%Y-%m#%d%H:%M:%S")
     local vim_config="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    
+    # If .vimrc exists and is not a symlink then rename it.
     local vimrc=${HOME}/.vimrc
-    if [ ! -f "${vimrc}" ]; then
-        ln -s ${vim_config}/minpack-vimrc "${vimrc}"
-    else
-        echo "${vimrc} already exists." 1>&2
+    if [ -f "${vimrc}" ] && [ ! -h "${vimrc}" ]; then
+        mv "${vimrc}" "${vimrc}-temos-backup-${id}"
     fi
+    # Ensure .vimrc is linked to the versioned minpack-vimrc.
+    ln -sf ${vim_config}/dot_tmux "${vimrc}"
+    echo "Activated: ${vimrc}"
 
-    # Create .vim if it does not exist.
+    # If .vim exists renamed it.
     local dot_vim=${HOME}/.vim
+    if [ -d "${dot_vim}" ]; then
+        mv "${dot_vim}"  "${dot_vim}-temos-backup-${id}"
+    fi
+    # Create .vim if it does not exist.
     if [ ! -d "${dot_vim}" ]; then
         mkdir -p "${dot_vim}"
     else
@@ -34,7 +41,7 @@ function activate() {
         popd > /dev/null
     fi
 
-    # Install minpack managed components.
+    # Install minpack managed plugin components.
     vim -E -c PackClean -c q 2> /dev/null
     vim -E -c PackUpdate -c q 2> /dev/null
 
