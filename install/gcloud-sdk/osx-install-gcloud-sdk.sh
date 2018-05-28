@@ -28,18 +28,19 @@ function install() {
     # Install gcloud from the specified archive.
     local archive="google-cloud-sdk-202.0.0-darwin-x86_64.tar.gz"
     local url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/${archive}"
-    local gcloud_sdk_dir="google-cloud-sdk"
+    local gcloud_sdk="google-cloud-sdk"
     echo "Installing glcoud: ${archive%.*.*}"
-    if [ -d "${gcloud_sdk_dir}" ]; then
-        echo "$(pwd)/${gcloud_sdk_dir} already exists. Deleting."
-        rm -Rf "${gcloud_sdk_dir}"
+    if [ -d "${gcloud_sdk}" ]; then
+        echo "$(pwd)/${gcloud_sdk} already exists. Deleting."
+        rm -Rf "${gcloud_sdk}"
     fi
     curl -O "${url}"
     tar -xvf "${archive}"
-    chmod -R u+rwx "${gcloud_sdk_dir}"
+    chmod -R u+rwx "${gcloud_sdk}"
     rm -f "${archive}"
-    pushd "${gcloud_sdk_dir}"
+    pushd "${gcloud_sdk}"
     ./install.sh -q
     popd
     popd
+    echo "Installed ${gcloud_sdk}. Ensure 'bin' directory is on path."
 } && install
