@@ -4,7 +4,7 @@
 
 # Configure Vim.
 #
-function _activate() {
+function activate() {
     # Create a .vimrc symlink to versioned minpack-vimrc if it does not exist.
     local vim_config="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     local vimrc=${HOME}/.vimrc
@@ -39,4 +39,4 @@ function _activate() {
     vim -E -c PackUpdate -c q 2> /dev/null
 
     echo "Vim packages installed. If necessary run 'PackUpdate' from inside vim."
-} && _activate
+} && activate

@@ -2,7 +2,7 @@
 
 # Configure bash profiles. Assumes: .profile < .bash_profile < .bashrc
 #
-function _activate() {
+function activate() {
     local id=$(date +"%Y-%m#%d%H:%M:%S")
     local bash_config="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -31,4 +31,4 @@ function _activate() {
     echo "Activated: ${bashrc}"
 
     source "${bashrc}"
-} && _activate
+} && activate
