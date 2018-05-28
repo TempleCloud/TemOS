@@ -40,7 +40,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # *** gcloud ******************************************************************
 
-if [ -d ${PATH}:"${HOME}/temos/bin/google-cloud-sdk/bin" ]; then
+if [ -d "${HOME}/temos/bin/google-cloud-sdk/bin" ]; then
     export PATH=${PATH}:"${HOME}/temos/bin/google-cloud-sdk/bin"
 fi
 
