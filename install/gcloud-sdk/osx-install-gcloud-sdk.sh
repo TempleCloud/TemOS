@@ -40,7 +40,7 @@ function install() {
     rm -f "${archive}"
     pushd "${gcloud_sdk}"
     ./install.sh -q
+    echo "Installed ${gcloud_sdk}. Ensure '${TEMOS_BIN}/${gcloud_sdk}/bin; directory is on path."
     popd
     popd
-    echo "Installed ${gcloud_sdk}. Ensure 'bin' directory is on path."
 } && install
