@@ -4,7 +4,7 @@
 #
 # http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/
 
-# Configure iTerm2
+# Activate iTerm2 profile.
 #
 function activate() {
     local _dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

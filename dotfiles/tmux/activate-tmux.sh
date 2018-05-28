@@ -6,7 +6,7 @@
 #
 # https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340
 
-# Configure tmux.
+# Activate tmux profile.
 #
 function activate() {
     local id=$(date +"%Y-%m#%d%H:%M:%S")

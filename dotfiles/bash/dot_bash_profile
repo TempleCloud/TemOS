@@ -32,6 +32,12 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 
+# *** fzf *********************************************************************
+
+[ -d ${PATH}:"${HOME}/.fzf" ] && export PATH=${PATH}:"${HOME}/.fzf" 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
 # *** golang ******************************************************************
 
 export GOPATH="${HOME}/Work/dev/golang"

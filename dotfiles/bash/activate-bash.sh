@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Configure bash profiles. Assumes: .profile < .bash_profile < .bashrc
+# Activate bash profiles. Assumes: .profile < .bash_profile < .bashrc
 #
 function activate() {
     local id=$(date +"%Y-%m#%d%H:%M:%S")

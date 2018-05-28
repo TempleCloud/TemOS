@@ -1,8 +1,9 @@
 #!/bin/bash
+set -e
 
 # Install 'minpack' .vimrc dotfile configuration.
 
-# Configure Vim.
+# Activate .vimrc profiles. 
 #
 function activate() {
     local id=$(date +"%Y-%m#%d%H:%M:%S")
