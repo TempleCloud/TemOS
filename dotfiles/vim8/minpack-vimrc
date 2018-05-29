@@ -1,4 +1,3 @@
-
 packadd minpac
 call minpac#init()
 
@@ -17,7 +16,6 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('majutsushi/tagbar')
 nmap <F5> :TagbarToggle<CR>
-
 
 "--- ack / ag
 call minpac#add('mileszs/ack.vim')
