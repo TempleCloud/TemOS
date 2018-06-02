@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 # Install 'minpack' .vimrc dotfile configuration.
 
@@ -14,14 +13,14 @@ function activate() {
     if [ -f "${vimrc}" ] && [ ! -h "${vimrc}" ]; then
         mv "${vimrc}" "${vimrc}-temos-backup-${id}"
     fi
-    # Ensure .vimrc is linked to the versioned minpack-vimrc.
-    ln -sf ${vim_config}/dot_tmux "${vimrc}"
+    # Ensure .vimrc is linked to the versioned minpac-vimrc.
+    ln -sf ${vim_config}/minpac-vimrc "${vimrc}"
     echo "Activated: ${vimrc}"
 
     # If .vim exists renamed it.
     local dot_vim=${HOME}/.vim
     if [ -d "${dot_vim}" ]; then
-        mv "${dot_vim}"  "${dot_vim}-temos-backup-${id}"
+        mv "${dot_vim}" "${dot_vim}-temos-backup-${id}"
     fi
     # Create .vim if it does not exist.
     if [ ! -d "${dot_vim}" ]; then
