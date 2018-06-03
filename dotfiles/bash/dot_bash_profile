@@ -40,8 +40,10 @@ fi
 
 # *** golang ******************************************************************
 
+export GOROOT=/usr/local/go
+[ -d "${GOROOT}" ] && export PATH=$PATH:$GOROOT/bin
 export GOPATH="${HOME}/Work/dev/golang"
-export PATH=$PATH:$GOPATH/bin
+[ -d "${GOPATH}" ] && export PATH=$PATH:$GOPATH/bin
 
 
 # *** gcloud ******************************************************************
@@ -54,7 +56,7 @@ fi
 # *** kubernetes **************************************************************
 
 # bash-completion package should be installed first.
-source <(kubectl completion bash)
+[ ! -z $(which kubectl) ] && source <(kubectl completion bash)
 
 
 # *** TemOS *******************************************************************

@@ -105,6 +105,10 @@ if has("gui_running")
    endif
 endif
 
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+" Always show statusline
+set laststatus=2
+
 "== pane spliting config =====================================================
   
 set splitbelow
