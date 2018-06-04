@@ -4,3 +4,5 @@ bin
 
 # Skip VCCode config.
 .vscode
+
+**/secret_env.sh
