@@ -9,7 +9,7 @@ function install() {
     local fzf_dir="${HOME}/.fzf"
     if [ ! -d ${fzf_dir} ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git "${fzf_dir}"
-        ./"${fzf_dir}"/install
+        "${fzf_dir}"/install --all --key-bindings --completion --no-update-rc
         echo "Installed fzf. Ensure ${fzf_dir} is on your path."
     else
         pushd ${fzf_dir} > /dev/null 
