@@ -30,4 +30,10 @@ function install() {
     "${temos}"/install/the-silver-searcher/apt-install-the-silver-searcher.sh
     "${temos}"/dotfiles/ag/dot_agignore.sh
 
+    # install gcloud
+    "${temos}"/install/gcloud-sdk/apt-install-gcloud-sdk.sh
+
+    # install kubectl
+    "${temos}"/install/kubectl/apt-install-kubectl.sh
+
 } && install
