@@ -46,4 +46,12 @@ function install() {
     # install kubectl
     "${temos}"/install/kubectl/apt-install-kubectl.sh
 
+    # install hugo and memoria
+    "${temos}"/install/hugo/apt-install-hugo.sh
+    "${temos}"/install/memoria/git-install-memoria.sh
+
+
+
+
+
 } && install
