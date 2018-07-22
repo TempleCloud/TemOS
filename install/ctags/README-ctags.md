@@ -8,6 +8,14 @@
 ctags -R .
 ```
 
+
+#### Configure Vim
+
+```
+:set tags=/path/to/tags-file
+
+```
+
 ---
 
 #### References
