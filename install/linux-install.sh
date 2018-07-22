@@ -6,6 +6,10 @@ function install() {
 
     # activate bash dotfile
     "${temos}"/dotfiles/bash/activate-bash.sh
+    
+    # insta;; curl anf wget
+    "${temos}"/install/curl/apt-install-curl.sh
+    "${temos}"/install/wget/apt-install-wget.sh
 
     # install powerline fonts
     "${temos}"/install/powerline/apt-pip-install-powerline.sh
