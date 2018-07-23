@@ -34,8 +34,12 @@ function install() {
     "${temos}"/install/the-silver-searcher/apt-install-the-silver-searcher.sh
     "${temos}"/dotfiles/ag/dot_agignore.sh
 
-    # install golang
+    # install golang, java
     "${temos}"/install/golang/linux-install-golang-sdk.sh
+    "${temos}"/install/java/apt-install-openjdk.sh
+
+    # install docker
+    "${temos}"/install/docker/apt-install-docker-ce.sh
 
     # install cfssl
     "${temos}"/install/cfssl/linux-install-cfssl.sh
@@ -50,8 +54,12 @@ function install() {
     "${temos}"/install/hugo/apt-install-hugo.sh
     "${temos}"/install/memoria/git-install-memoria.sh
 
-
-
+    # install vscode
+    "${temos}"/install/vscode/apt-install-vscode.sh
+    
+    # install nginx
+    # "${temos}"/install/nginx/git-install-nginx.sh
 
 
 } && install
+
