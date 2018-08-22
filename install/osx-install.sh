@@ -13,27 +13,27 @@ function install() {
     # TODO - OSX Variants of....
 
     # install curl and wget
-    # "${temos}"/install/curl/apt-install-curl.sh
-    # "${temos}"/install/wget/apt-install-wget.sh
+    "${temos}"/install/curl/osx-install-curl.sh
+    "${temos}"/install/wget/osx-install-wget.sh
 
     # install powerline fonts
-    # "${temos}"/install/powerline/apt-pip-install-powerline.sh
-    # "${temos}"/install/powerline/linux-install-powerline-font.sh
+    "${temos}"/install/powerline/pip-install-powerline.sh
+    "${temos}"/install/powerline/osx-install-powerline-fonts.sh
 
     # install exuberant-ctags
     # "${temos}"/install/ctags/apt-install-ctags.sh
 
     # install vim and activate dotfiles
-    # "${temos}"/install/vim/apt-install-vim.sh
-    # "${temos}"/dotfiles/vim8/activate-minpac-vim.sh
+    "${temos}"/install/vim/brew-install-vim.sh
+    "${temos}"/dotfiles/vim8/activate-minpac-vim.sh
 
     # install tmux and activate dotfiles    
     # "${temos}"/install/tmux/apt-git-make-install-tmux.sh
     # "${temos}"/dotfiles/tmux/activate-tmux.sh
 
     # install tmux and activate dotfiles
-    # "${temos}"/install/fzf/git-install-fzf.sh
-    # "${temos}"/dotfiles/fzf/activate-fzf.sh
+    "${temos}"/install/fzf/git-install-fzf.sh
+    "${temos}"/dotfiles/fzf/activate-fzf.sh
 
     # install ag and activate dotfiles
     # "${temos}"/install/the-silver-searcher/apt-install-the-silver-searcher.sh
@@ -64,6 +64,9 @@ function install() {
     
     # install nginx
     # "${temos}"/install/nginx/git-install-nginx.sh
+
+    # OSX Custom
+
 
 
 } && install
