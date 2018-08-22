@@ -10,5 +10,5 @@ fi
 
 # Key bindings
 # ------------
-source "/home/temple/.fzf/shell/key-bindings.bash"
+[ -f ${HOME}/.fzf.bash ] && source "${HOME}/.fzf/shell/key-bindings.bash"
 
