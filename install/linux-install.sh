@@ -2,7 +2,7 @@
 
 function install() {
     local dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-    local "{temos}"=$(dirname $dir)
+    local temos=$(dirname $dir)
 
     # activate bash dotfile
     "${temos}"/dotfiles/bash/activate-bash.sh
