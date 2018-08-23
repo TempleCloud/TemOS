@@ -40,7 +40,7 @@ function install() {
     # "${temos}"/dotfiles/ag/dot_agignore.sh
 
     # install golang, java
-    # "${temos}"/install/golang/linux-install-golang-sdk.sh
+    "${temos}"/install/golang/osx-install-golang-sdk.sh
     # "${temos}"/install/java/apt-install-openjdk.sh
 
     # install docker
@@ -50,14 +50,14 @@ function install() {
     # "${temos}"/install/cfssl/linux-install-cfssl.sh
 
     # install gcloud
-    # "${temos}"/install/gcloud-sdk/apt-install-gcloud-sdk.sh
+    "${temos}"/install/gcloud-sdk/osx-install-gcloud-sdk.sh
 
     # install kubectl
-    # "${temos}"/install/kubectl/apt-install-kubectl.sh
+    "${temos}"/install/kubectl/gcloud-install-kubectl.sh
 
     # install hugo and memoria
-    # "${temos}"/install/hugo/apt-install-hugo.sh
-    # "${temos}"/install/memoria/git-install-memoria.sh
+    "${temos}"/install/hugo/brew-install-hugo.sh
+    "${temos}"/install/memoria/git-install-memoria.sh
 
     # install vscode
     # "${temos}"/install/vscode/apt-install-vscode.sh
