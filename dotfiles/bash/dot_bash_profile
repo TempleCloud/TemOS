@@ -53,6 +53,14 @@ if [ -d "${HOME}/temos/bin/google-cloud-sdk/bin" ]; then
 fi
 
 
+# *** hugo ********************************************************************
+
+if [ "$(uname)" == "Darwin" ]; then
+    export HUGO_HOME='/usr/local/Cellar/hugo/0.47.1'
+    [ -d "${HUGO_HOME}" ] && export PATH=$PATH:$HUGO_HOME/bin
+fi
+
+
 # *** kubernetes **************************************************************
 
 # bash-completion package should be installed first.
