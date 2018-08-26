@@ -10,11 +10,13 @@
 function install() {
     local meslo_url="https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf?raw=true"
     local meslo_file="Meslo LG M Regular for Powerline.tff"
-    curl -L "${meslo_url}" -o "${meslo_file}"
-    mv "${MESLO_FILE}" ${HOME}/Library/Fonts
+    curl -L "${meslo_url}" -so "${meslo_file}"
+    cp "${meslo_file}" /Library/Fonts
+    mv "${meslo_file}" ${HOME}/Library/Fonts
 
     local menlo_url="https://github.com/abertsch/Menlo-for-Powerline/blob/master/Menlo%20for%20Powerline.ttf?raw=true"
     local menlo_file="Menlo for Powerline.ttf"
-    curl -L "${menlo_url}" -o "${menlo_file}"
+    curl -L "${menlo_url}" -so "${menlo_file}"
+    cp "${menlo_file}" /Library/Fonts
     mv "${menlo_file}" ${HOME}/Library/Fonts
-) && install
+ } && install

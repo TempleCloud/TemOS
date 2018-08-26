@@ -26,7 +26,8 @@ function install() {
     fi
 
     # Install gcloud from the specified archive.
-    local archive="google-cloud-sdk-202.0.0-darwin-x86_64.tar.gz"
+    # local archive="google-cloud-sdk-202.0.0-darwin-x86_64.tar.gz"
+    local archive="google-cloud-sdk-213.0.0-darwin-x86_64.tar.gz"
     local url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/${archive}"
     local gcloud_sdk="google-cloud-sdk"
     echo "Installing glcoud: ${archive%.*.*}"

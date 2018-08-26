@@ -2,7 +2,7 @@
 
 function install() {
     local dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-    local "{temos}"=$(dirname $dir)
+    local temos=$(dirname $dir)
 
     # activate bash dotfile
     "${temos}"/dotfiles/bash/activate-bash.sh
@@ -13,7 +13,7 @@ function install() {
 
     # install powerline fonts
     "${temos}"/install/powerline/apt-pip-install-powerline.sh
-    "${temos}"/install/powerline/linux-install-powerline-font.sh
+    "${temos}"/install/powerline/linux-install-powerline-fonts.sh
 
     # install exuberant-ctags
     "${temos}"/install/ctags/apt-install-ctags.sh
