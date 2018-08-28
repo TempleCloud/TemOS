@@ -55,6 +55,9 @@ function install() {
     # install kubectl
     "${temos}"/install/kubectl/gcloud-install-kubectl.sh
 
+    # install helm
+    "${temos}"/install/helm/osx-install-helm.sh
+
     # install hugo and memoria
     "${temos}"/install/hugo/brew-install-hugo.sh
     "${temos}"/install/memoria/git-install-memoria.sh
@@ -70,4 +73,5 @@ function install() {
 
 
 } && install
+
 
