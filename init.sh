@@ -10,3 +10,7 @@ if [ ! -d "${TEMOS_BIN}" ]; then
     echo "temos 'bin' directory does not exist. Creating ${TEMOS_BIN}."
     mkdir -p "${TEMOS_BIN}"
 fi
+
+# Export TEMOS_BIN. Create directory if it does not exist.
+export TEMOS_SCRIPT="${TEMOS_HOME}/script"
+source $TEMOS_SCRIPT/proxy.sh
