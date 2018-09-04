@@ -27,7 +27,6 @@ function install() {
     tar xvf "${binary}"
     local install_dir="/usr/local/bin/"
     sudo mv darwin-amd64/helm "${install_dir}"
-    # sudo chown -R $USER:admin ./go
 
     rm -Rf darwin-amd64 
     rm -f "${binary}"
