@@ -16,6 +16,12 @@ export PS1="\[\033[0;95m\]\! \[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+# *** TemOS *******************************************************************
+
+export TEMOS_HOME=${HOME}/temos
+source ${TEMOS_HOME}/init.sh
+export PATH=${PATH}:${TEMOS_HOME}/bin
+
 
 # *** ALIAS *******************************************************************
 
@@ -31,6 +37,30 @@ if [ "$(uname)" == "Darwin" ]; then
     alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 fi
 
+
+# *** android *****************************************************************
+
+if [ -d "${TEMOS_BIN}/android-studio" ]; then
+    export ANDROID_STUDIO_HOME="${TEMOS_BIN}/android-studio"
+    export PATH=${PATH}:"${ANDROID_STUDIO_HOME}/bin"
+    # Fix error when running android 'sdkmanager'
+    # NB: We have to unset this afterwards to make things work... Maybe this needs an Oaacle/J2EE runtime?
+    # export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+    alias sdkmanager="JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee' sdkmanager"
+    alias android-studio="${ANDROID_STUDIO_HOME}/bin/studio.sh &"
+fi
+
+if [ -d "${TEMOS_BIN}/android-tools" ]; then
+    export ANDROID_TOOLS_HOME="${TEMOS_BIN}/android-tools"
+    export PATH=${PATH}:"${ANDROID_TOOLS_HOME}/bin"
+fi
+
+# *** flutter *****************************************************************
+
+if [ -d "${TEMOS_BIN}/flutter/bin" ]; then
+    export FLUTTER_HOME="${TEMOS_BIN}/flutter"
+    export PATH=${PATH}:"${FLUTTER_HOME}/bin"
+fi
 
 # *** fzf *********************************************************************
 
@@ -86,7 +116,6 @@ export TEMOS_HOME=${HOME}/temos
 source ${TEMOS_HOME}/init.sh
 export PATH=${PATH}:${TEMOS_HOME}/bin
 
-
 alias die-slow-machine="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
 
 
@@ -98,4 +127,3 @@ if [ -f "${HOME}/temos/bin/google-cloud-sdk/path.bash.inc" ]; then source "${HOM
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc"; fi
 
-export PATH="$HOME/.cargo/bin:$PATH"

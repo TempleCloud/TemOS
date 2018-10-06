@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# https://golang.org/doc/install
+# https://golang.org/doc/install#install
+# https://golang.org/dl/
+
 function install() {
     local version="1.10.2"
     local binary="go${version}.linux-amd64.tar.gz"
