@@ -87,6 +87,9 @@ source ${TEMOS_HOME}/init.sh
 export PATH=${PATH}:${TEMOS_HOME}/bin
 
 
+alias die-slow-machine="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
+
+
 # *** END  ********************************************************************
 
 # The next line updates PATH for the Google Cloud SDK.
