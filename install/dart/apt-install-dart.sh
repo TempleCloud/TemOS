@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# 
-
 function install() {
     # Add repository
     sudo apt-get update
