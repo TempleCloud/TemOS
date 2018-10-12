@@ -1,5 +1,4 @@
 #!/bin/bash
-set e
 
 # Export TEMOS_HOME. This should be the 'temos' directory.
 export TEMOS_HOME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
