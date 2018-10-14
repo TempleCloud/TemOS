@@ -29,6 +29,10 @@ function install() {
 	sudo apt-get update
 	sudo apt-get install -y docker-ce
 
+	# Create and add user to docker group.
+	sudo groupadd docker
+	sudo usermod -aG docker $USER
+
 	# Test installation.
 	sudo docker run hello-world
 } && install
