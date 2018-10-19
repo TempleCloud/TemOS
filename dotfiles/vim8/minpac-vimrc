@@ -47,6 +47,13 @@ let g:airline_theme = 'molokai'
 call minpac#add('dandorman/vim-colors')
 call minpac#add('jnurmine/Zenburn')
 
+"== languages ================================================================
+
+call minpac#add('rust-lang/rust.vim')
+call minpac#add('racer-rust/vim-racer')
+call minpac#add('fatih/vim-go')
+
+
 "== editor configuration ======================================================
 
 filetype plugin indent on
