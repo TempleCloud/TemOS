@@ -13,3 +13,9 @@ fi
 # Export TEMOS_BIN. Create directory if it does not exist.
 export TEMOS_SCRIPT="${TEMOS_HOME}/script"
 source $TEMOS_SCRIPT/proxy.sh
+
+# If present execute work script. This script is not checked in and used for 
+# customising machine specific environments.
+if [ -f "${TEMOS_SCRIPT}/work.sh" ]; then
+    source "${TEMOS_SCRIPT}/work.sh"
+fi

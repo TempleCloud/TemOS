@@ -5,4 +5,9 @@ bin
 # Skip VCCode config.
 .vscode
 
+# Do not checkin work specific initialisation.
+script/work.sh
+
+# Do not check in any environment customisations.
+**/env.sh
 **/secret_env.sh
