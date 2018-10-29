@@ -101,6 +101,14 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 
+# *** hvm *********************************************************************
+
+if [ -d "${HOME}/.hvm" ]; then
+    export HVM_HOME="$HOME/.hvm"
+    alias hvm="${HVM_HOME}/hvm.sh"
+fi
+
+
 # *** kubernetes **************************************************************
 
 # bash-completion package should be installed first.
