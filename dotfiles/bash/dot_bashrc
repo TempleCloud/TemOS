@@ -7,3 +7,8 @@
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Load Tilix 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
