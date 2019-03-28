@@ -5,6 +5,10 @@
 # Load the default .profile
 [[ -s "${HOME}/.profile" ]] && source "${HOME}/.profile"
 
+# TODO: Find out where path is being prepended.
+
+echo Incoming path: $PATH
+
 
 # *** TERMINAL ****************************************************************
 
@@ -80,17 +84,17 @@ fi
 
 # *** golang ******************************************************************
 
-export GOROOT=/usr/local/go
-[ -d "${GOROOT}" ] && export PATH=$PATH:$GOROOT/bin
+# export GOROOT=/usr/local/go
+# [ -d "${GOROOT}" ] && export PATH=$PATH:$GOROOT/bin
 export GOPATH="${HOME}/Work/dev/golang"
 [ -d "${GOPATH}" ] && export PATH=$PATH:$GOPATH/bin
 
 
 # *** gcloud ******************************************************************
 
-if [ -d "${HOME}/temos/bin/google-cloud-sdk/bin" ]; then
-    export PATH=${PATH}:"${HOME}/temos/bin/google-cloud-sdk/bin"
-fi
+# if [ -d "${HOME}/temos/bin/google-cloud-sdk/bin" ]; then
+#     export PATH=${PATH}:"${HOME}/temos/bin/google-cloud-sdk/bin"
+# fi
 
 # *** gpg *********************************************************************
 
@@ -121,8 +125,10 @@ fi
 # *** nvm ********************************************************************
 
 [ -s "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+# NB: These scritpts prepend to PATH. 
+#
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
 
 
 # *** rust **************************************************************
@@ -136,14 +142,18 @@ export TEMOS_HOME=${HOME}/temos
 source ${TEMOS_HOME}/init.sh
 export PATH=${PATH}:${TEMOS_HOME}/bin
 
-alias die-slow-machine="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
+alias kil-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
 
 
 # *** END  ********************************************************************
 
+
+# NB: These scritpts prepend to PATH. 
+#
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "${HOME}/temos/bin/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/temos/bin/google-cloud-sdk/path.bash.inc"; fi
+# if [ -f "${HOME}/temos/bin/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/temos/bin/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc"; fi
+# if [ -f "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc"; fi
 
