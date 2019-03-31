@@ -11,5 +11,3 @@ case "${os_uname}" in
     *)       _os="UNKNOWN:${os_uname}"
 esac
 
-export PATH="$PATH:$HOME/.cargo/bin"
-

@@ -5,10 +5,6 @@
 # Load the default .profile
 [[ -s "${HOME}/.profile" ]] && source "${HOME}/.profile"
 
-# TODO: Find out where path is being prepended.
-
-echo Incoming path: $PATH
-
 
 # *** TERMINAL ****************************************************************
 
@@ -125,7 +121,7 @@ fi
 # *** nvm ********************************************************************
 
 [ -s "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
-# NB: These scritpts prepend to PATH. 
+# NB: These scripts prepend to PATH. 
 #
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
 # [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
@@ -142,7 +138,7 @@ export TEMOS_HOME=${HOME}/temos
 source ${TEMOS_HOME}/init.sh
 export PATH=${PATH}:${TEMOS_HOME}/bin
 
-alias kil-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
+alias kill-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
 
 
 # *** END  ********************************************************************
