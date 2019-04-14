@@ -5,9 +5,11 @@
 # https://golang.org/dl/
 
 function install() {
-    local version="1.10.2"
+    # local version="1.10.2"
+    local version="1.12.4"
     local binary="go${version}.linux-amd64.tar.gz"
-    local expected_sha256="4b677d698c65370afa33757b6954ade60347aaca310ea92a63ed717d7cb0c2ff"
+    # local expected_sha256="4b677d698c65370afa33757b6954ade60347aaca310ea92a63ed717d7cb0c2ff"
+    local expected_sha256="d7d1f1f88ddfe55840712dc1747f37a790cbcaa448f6c9cf51bbe10aa65442f5"
 
     if [ ! -f "${binary}" ]; then
         curl -O https://dl.google.com/go/"${binary}"
@@ -29,6 +31,7 @@ function install() {
     # export GOROOT=/usr/local/go
     # export GOPATH=$HOME/work
     # export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+    # export PATH=$PATH:/usr/local/go/bin
 
     rm -Rf "${binary}"
 } && install
