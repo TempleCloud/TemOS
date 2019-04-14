@@ -1,6 +1,6 @@
 #!/bin/bash
 
 function install() {
-    sudo apt install -y swi-prolog
+    sudo apt install swi-prolog-nox
 } && install
 
