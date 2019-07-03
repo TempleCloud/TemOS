@@ -13,6 +13,6 @@ esac
 
 # Enable dropbox daemond on occam. 
 
-# if [ "occam" == `hostname` ]; then
-#     ${HOME}/.dropbox-dist/dropboxd &
-# fi
+if [ "occam" == `hostname` ]; then
+    alias start-dropbox="${HOME}/.dropbox-dist/dropboxd"
+fi
