@@ -84,7 +84,7 @@ export GOPATH="${HOME}/Work/dev/golang"
 # [ -d "${GOPATH}" ] && export PATH=$PATH:$GOPATH/bin
 
 if [ "$(uname)" == "Darwin" ]; then
-    echo "TODO: Define brew path."
+    # echo "TODO: Define brew path."
 fi
 
 if [ "$(uname)" == "Linux" ]; then

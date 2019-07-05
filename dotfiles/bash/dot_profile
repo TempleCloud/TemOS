@@ -16,3 +16,4 @@ esac
 if [ "occam" == `hostname` ]; then
     alias start-dropbox="${HOME}/.dropbox-dist/dropboxd"
 fi
+
