@@ -39,7 +39,6 @@ if [ "$(uname)" == "Darwin" ]; then
     alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 fi
 
-
 # *** android *****************************************************************
 
 if [ -d "${TEMOS_BIN}/android-studio" ]; then
@@ -55,6 +54,12 @@ fi
 if [ -d "${TEMOS_BIN}/android-tools" ]; then
     export ANDROID_TOOLS_HOME="${TEMOS_BIN}/android-tools"
     export PATH=${PATH}:"${ANDROID_TOOLS_HOME}/bin"
+fi
+
+# *** aws *********************************************************************
+
+if [ -d '$HOME/.local/bin' ]; then
+    export $PATH="$PATH:$HOME/.local/bin"
 fi
 
 # *** flutter *****************************************************************
