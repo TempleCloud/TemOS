@@ -56,7 +56,7 @@ function use-cluster() {
 }
 
 function hello() {
-	echo "heello"
+	echo "hello"
 }
 
 
