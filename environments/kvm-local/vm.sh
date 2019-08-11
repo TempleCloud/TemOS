@@ -15,7 +15,7 @@
 # =============================================================================
 
 # Check Intel hardware virtualisation is installed...
-function kvm::check-intel-hw-virtualisation-enabled() {
+function vm::check-intel-hw-virtualisation-enabled() {
     local res=$(grep -e 'vmx' /proc/cpuinfo | grep flag | wc -l)
     if [ "${res}" == 0 ]; then
         echo "Failure: Intel VMX hardware extension not enabled."
@@ -25,7 +25,7 @@ function kvm::check-intel-hw-virtualisation-enabled() {
 }
 
 # Check AMD hardware virtualisation is installed...
-function kvm::check-amd-hw-virtualisation-enabled() {
+function vm::check-amd-hw-virtualisation-enabled() {
     local res=$(grep -e 'svm' /proc/cpuinfo | grep flag | wc -l)
     if [ "${res}" == "0" ]; then
         echo "Failure: AMD SVM hardware extension not enabled."
@@ -35,7 +35,7 @@ function kvm::check-amd-hw-virtualisation-enabled() {
 }
 
 # Check KVM kernel module is installed...
-function kvm::check-kvm-kernel-mod-loaded() {
+function vm::check-kvm-kernel-mod-loaded() {
     local res=$(lsmod | grep kvm)
     if [ -z "${res}" ]; then
         echo "Failure: KVM kernel module not loaded."
@@ -45,7 +45,7 @@ function kvm::check-kvm-kernel-mod-loaded() {
 }
 
 # Check the status of KVM and libvirtd
-function kvm::check() {
+function vm::check() {
     echo
     printf "\u001b[32m"
     printf "#1 - Testing KVM:\n"
@@ -87,7 +87,7 @@ function kvm::check() {
 }
 
 # Install the kvm packages using apt.
-function kvm::install-packages() {
+function vm::install-packages() {
     sudo apt install -y qemu-kvm
     sudo apt install -y libvirt-clients libvirt-daemon-system virt-manager
     sudo apt install -y bridge-utils
@@ -105,21 +105,30 @@ function kvm::install-packages() {
 [ -z "${LIBVIRT_URL}" ] && export LIBVIRT_URL="qemu:///system"
 
 # Restart the libvirtd daemon.
-function kvm:restart-libvirtd() {
+function vm::restart-libvirtd() {
     sudo systemctl restart libvirtd
 }
 
 # Open 'virt-manager' UI.
-function kvm::open-virt-manager() {
+function vm::open-virt-manager() {
     virt-manager &
 }
 
-function kvm::init() {
-    kvm::install-packages
-    kvm::create-iso-store
-    kvm::create-storage-pool
-    kvm::download-isos
+function vm::init() {
+    vm::install-packages
+    vm::create-iso-store
+    vm::create-storage-pool
+    vm::download-isos
 }
+
+# Domains =====================================================================
+#
+# * List : virsh list
+#
+function vm::list() {
+    virsh list
+}
+
 
 # Networking ==================================================================
 #
@@ -130,41 +139,41 @@ function kvm::init() {
 [ -z "${LIBVIRT_NETWORK_SPEC}" ] && export LIBVIRT_NETWORK_SPEC="${PWD}/kvm-default-network.xml"
 
 # LIST virtual networks. [net-list]
-function kvm::network-list() {
+function vm::network-list() {
     local url="${1:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-list --all
 }
 
 # GET the named network. [net-dump]
-function kvm::network-get() {
+function vm::network-get() {
     local name="${1:-${LIBVIRT_NETWORK_NAME}}"
     local url="${2:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-dumpxml "${name}"
 }
 
 # EDIT the named network. [net-edit]
-function kvm::network-edit() {
+function vm::network-edit() {
     local name="${1:-${LIBVIRT_NETWORK_NAME}}"
     local url="${2:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-edit "${name}"
 }
 
 # CREATE a named network. [net-define]
-function kvm::network-create() {
+function vm::network-create() {
     local nw_spec="${1:-${LIBVIRT_NETWORK_SPEC}}"
     local url="${2:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-define "${nw_spec}"
 }
 
 # DELETE a named network. [net-undefine]
-function kvm::network-delete() {
+function vm::network-delete() {
     local name="${1:-${LIBVIRT_NETWORK_NAME}}"
     local url="${2:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-undefine "${name}"
 }
 
 # START a named network. [net-start]
-function kvm::network-start() {
+function vm::network-start() {
     local name="${1:-${LIBVIRT_NETWORK_NAME}}"
     local url="${2:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-start "${name}" > /dev/null
@@ -174,7 +183,7 @@ function kvm::network-start() {
 }
 
 # STOP a named network. [net-destroy]
-function kvm::network-stop() {
+function vm::network-stop() {
     local name="${1:-${LIBVIRT_NETWORK_NAME}}"
     local url="${2:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-destroy "${name}" > /dev/null
@@ -184,19 +193,32 @@ function kvm::network-stop() {
 }
 
 # AUTOSTART a named network on boot. [net-autostart]
-function kvm::network-autostart() {
+function vm::network-autostart() {
     local name="${1:-${LIBVIRT_NETWORK_NAME}}"
     local url="${2:-${LIBVIRT_URL}}"
     virsh -c "${url}" net-autostart "${name}"
 }
 
+# Get public ip for domain form dhcp
+# https://www.cyberciti.biz/faq/find-ip-address-of-linux-kvm-guest-virtual-machine/ 
+function vm::ip() {
+    local domain=$1
+    virsh -q net-dhcp-leases "${domain}" | awk '{print $5}' | cut -d/ -f 1
+}
+
+# ssh into target machine
+function vm::ssh() {
+    local domain=$1
+    local domain_ip=$(vm::ip ${domain})
+    ssh "${domain_ip}"
+}
 
 # Storage Pools ===============================================================
 #
 
 KVM_DISK_POOL="kvm-dev"
 # Create a home for storage device pools.
-function kvm::create-storage-pool() {
+function vm::create-storage-pool() {
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
     mkdir -p "${DIR}/${KVM_DISK_POOL}"
 }
@@ -206,14 +228,14 @@ function kvm::create-storage-pool() {
 
 # Create a home for local ISO images.
 KVM_ISO_HOME="kvm-iso"
-function kvm::create-iso-store() {
+function vm::create-iso-store() {
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
     mkdir -p "${DIR}/${KVM_ISO_HOME}"
 }
 
 # Download iso if they don't exist already.
 #
-function kvm::download-isos() {
+function vm::download-isos() {
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
     pushd "${DIR}/${KVM_ISO_HOME}" > /dev/null
 
@@ -250,7 +272,7 @@ function kvm::download-isos() {
 
 # Create an unattended ubuntu install.
 # 
-function kvm::create-unattended-ubuntu-install() {
+function vm::create-unattended-ubuntu-install() {
     wget https://raw.githubusercontent.com/netson/ubuntu-unattended/master/create-unattended-iso.sh
     chmod +x create-unattended-iso.sh
     sudo ./create-unattended-iso.sh
@@ -259,24 +281,16 @@ function kvm::create-unattended-ubuntu-install() {
 # connection ==================================================================
 #
 
-function kvm::init-serial() {
+function vm::init-serial() {
     sudo systemctl enable serial-getty@ttyS0.service
     sudo systemctl start serial-getty@ttyS0.service
 }
 
-# Connecition 
-# 
-# virsh list
-#   virsh console khack
-#   virsh console 2
-# 
-# ssh temple@192.168.122.21
-
 # Main ========================================================================
 #
 
-
+alias vm="${TEMOS_HOME}/environments/kvm-local/vm.sh "
 
 if [ ! -z "$1" ]; then
-    kvm::$*
+    vm::$*
 fi

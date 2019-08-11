@@ -24,20 +24,22 @@ export TEMOS_HOME=${HOME}/temos
 source ${TEMOS_HOME}/init.sh
 export PATH=${PATH}:${TEMOS_HOME}/bin
 
-
 # *** ALIAS *******************************************************************
 
 # Refresh Terminal
 alias refresh='source ~/.bash_profile && clear'
 
+# === OS Specific ==============================================================
 
-# *** OSX ALIAS ***************************************************************
+# --- OSX ----------------------------------------------------------------------
 
 if [ "$(uname)" == "Darwin" ]; then
     # Show/Hide Files in Finder
     alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
     alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 fi
+
+# === App Specific ==============================================================
 
 # *** android *****************************************************************
 
@@ -75,7 +77,7 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
-# *** java  *******************************************************************
+# *** java ********************************************************************
 
 if [ "$(uname)" == "Linux" ]; then
     export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
@@ -114,7 +116,6 @@ if [ "$(uname)" == "Darwin" ]; then
     [ -d "${HUGO_HOME}" ] && export PATH=$PATH:$HUGO_HOME/bin
 fi
 
-
 # *** hvm *********************************************************************
 
 if [ -d "${HOME}/.hvm" ]; then
@@ -122,12 +123,10 @@ if [ -d "${HOME}/.hvm" ]; then
     alias hvm="${HVM_HOME}/hvm.sh"
 fi
 
-
 # *** kubernetes **************************************************************
 
 # bash-completion package should be installed first.
 [ ! -z $(which kubectl) ] && source <(kubectl completion bash)
-
 
 # *** nvm ********************************************************************
 
@@ -136,22 +135,26 @@ fi
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
 
-
 # *** rust **************************************************************
 
 [ -d "$HOME/.cargo/bin" ] && export PATH=$PATH:$HOME/.cargo/bin
 
 
-# *** TemOS *******************************************************************
+# *** kvm/virsh **************************************************************
 
-export TEMOS_HOME=${HOME}/temos
-source ${TEMOS_HOME}/init.sh
-export PATH=${PATH}:${TEMOS_HOME}/bin
+if [ "$(uname)" == "Linux" ]; then
+    alias init-vm="source ${TEMOS_HOME}/environments/kvm-local/vm.sh "
+fi
 
-alias kill-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
+# *** END *********************************************************************
 
 
-# *** END  ********************************************************************
+# *** Machine Specific ********************************************************
+
+if [[ `hostname` == "tlangfor-mac" ]]; then
+    alias kill-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
+fi
+
 
 
 # NB: These scritpts prepend to PATH. 
