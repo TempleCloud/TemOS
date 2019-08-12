@@ -8,99 +8,15 @@
 #
 # =============================================================================
 
-# kvm =========================================================================
-#
-# Kernel Virtual Machine - Virtualised Machine
-#
-# =============================================================================
+source "${TEMOS_HOME}/environments/kvm-local/kvm-install.sh"
+source "${TEMOS_HOME}/environments/kvm-local/kvm-check.sh"
 
-# Check Intel hardware virtualisation is installed...
-function vm::check-intel-hw-virtualisation-enabled() {
-    local res=$(grep -e 'vmx' /proc/cpuinfo | grep flag | wc -l)
-    if [ "${res}" == 0 ]; then
-        echo "Failure: Intel VMX hardware extension not enabled."
-    else
-        echo "Success: Intel VMX hardware extension is enabled."
-    fi
-}
-
-# Check AMD hardware virtualisation is installed...
-function vm::check-amd-hw-virtualisation-enabled() {
-    local res=$(grep -e 'svm' /proc/cpuinfo | grep flag | wc -l)
-    if [ "${res}" == "0" ]; then
-        echo "Failure: AMD SVM hardware extension not enabled."
-    else 
-        echo "Success: AMD SVM hardware extension is enabled."
-    fi
-}
-
-# Check KVM kernel module is installed...
-function vm::check-kvm-kernel-mod-loaded() {
-    local res=$(lsmod | grep kvm)
-    if [ -z "${res}" ]; then
-        echo "Failure: KVM kernel module not loaded."
-    else
-       echo "Success: KVM kernel module is loaded."     
-    fi
-}
-
-# Check the status of KVM and libvirtd
-function vm::check() {
-    echo
-    printf "\u001b[32m"
-    printf "#1 - Testing KVM:\n"
-    printf "\u001b[0m"
-    echo
-    kvm-ok
-
-    echo
-    printf "\u001b[32m"
-    echo "#3 - Check '/dev/kvm':"
-    printf "\u001b[0m"
-    echo
-    sudo ls -l /dev/kvm
-    echo
-
-    echo
-    printf "\u001b[32m"
-    echo "#2 - Testing VM List:"
-    printf "\u001b[0m"
-    echo
-    virsh list --all
-    echo
-
-    echo
-    printf "\u001b[32m"
-    echo "#4 - Check 'libvirt-sock':"
-    printf "\u001b[0m"
-    echo
-    sudo ls -la /var/run/libvirt/libvirt-sock
-    echo
-
-    echo
-    printf "\u001b[32m"
-    echo "#5 - Check 'libvirtd' status:"
-    printf "\u001b[0m"
-    echo
-    sudo systemctl status libvirtd  -l --no-pager
-    echo
-}
-
-# Install the kvm packages using apt.
-function vm::install-packages() {
-    sudo apt install -y qemu-kvm
-    sudo apt install -y libvirt-clients libvirt-daemon-system virt-manager
-    sudo apt install -y bridge-utils
-    sudo adduser $(whoami) libvirt
-    sudo adduser $(whoami) libvirt-qemu
-}
 
 # libvirt =====================================================================
 #
 # LibVirt
 #
 # =============================================================================
-
 
 [ -z "${LIBVIRT_URL}" ] && export LIBVIRT_URL="qemu:///system"
 
@@ -123,10 +39,47 @@ function vm::init() {
 
 # Domains =====================================================================
 #
-# * List : virsh list
-#
+
+# List domains
+# https://www.cyberciti.biz/faq/linux-list-a-kvm-vm-guest-using-virsh-command/
 function vm::list() {
-    virsh list
+    virsh list --all
+}
+
+# Reboot a domain.
+function vm::reboot() {
+    local domain=$1
+    virsh reboot "${domain}"
+}
+
+# Start a (previously defined) inactive domain.
+function vm::start() {
+    local domain=$1
+    virsh start "${domain}"
+}
+
+# Destroy (stop) a domain.
+function vm::stop() {
+    local domain=$1
+    virsh destroy "${domain}"
+}
+
+# Suspend a domain.
+function vm::suspend() {
+    local domain=$1
+    virsh suspend "${domain}"
+}
+
+# Shutdown a domain.
+function vm::shutdown() {
+    local domain=$1
+    virsh shutdown "${domain}"
+}
+
+# Shutdown a domain.
+function vm::status() {
+    local domain=$1
+    virsh dominfo "${domain}"
 }
 
 
