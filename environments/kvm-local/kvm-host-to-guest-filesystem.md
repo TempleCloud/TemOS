@@ -16,6 +16,12 @@ group = "temple"
 dynamic_ownership = 1
 ```
 
+> NB: If necessary restart `libvirtd`: 
+
+    ```
+    sudo systemctl restart libvirtd
+    ```
+
 ---
 
 2. Configure KVM Filesystem
