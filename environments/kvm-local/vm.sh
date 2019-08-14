@@ -20,8 +20,13 @@ source "${TEMOS_HOME}/environments/kvm-local/kvm-check.sh"
 
 [ -z "${LIBVIRT_URL}" ] && export LIBVIRT_URL="qemu:///system"
 
+# Check the libvirtd daemon.
+function vn::libvirtd-status() {
+    sudo systemctl status libvirtd  -l --no-page
+}
+
 # Restart the libvirtd daemon.
-function vm::restart-libvirtd() {
+function vm::libvirtd-restart() {
     sudo systemctl restart libvirtd
 }
 
