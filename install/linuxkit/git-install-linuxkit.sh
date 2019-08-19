@@ -6,9 +6,8 @@
 function install() {
     git clone git@github.com:linuxkit/linuxkit.git
     pushd linuxkit
-    # NB: Builds in a docker container. Requires docker.
+    # NB: Builds in a docker container. Requires GNU make, docker, qeumu.
     make
-    # qemu
     cp ./bin/linuxkit ${TEMOS_BIN}/linuxkit
     popd
     rm -Rf linuxkit
