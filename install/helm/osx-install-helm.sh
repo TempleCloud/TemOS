@@ -9,9 +9,11 @@
 # https://github.com/helm/helm/releases
 
 function install() {
+    # local version="v2.8.1"
     # local version="v2.9.1"
     # local version="v2.10.0"
-    local version="v2.8.1"
+    local version="v2.12.1"
+    local binary="helm-${version}-darwin-amd64.tar.gz"
     local binary="helm-${version}-darwin-amd64.tar.gz"
     local expected_sha256=$(curl -s https://storage.googleapis.com/kubernetes-helm/${binary}.sha256)   
 

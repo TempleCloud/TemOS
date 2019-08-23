@@ -8,7 +8,7 @@ set -e
 # https://www.terraform.io/downloads.html
 
 function install() {
-    local version="0.11.8"
+    local version="0.11.14"
     local url="https://releases.hashicorp.com/terraform/${version}"
     local binary="terraform_${version}_darwin_amd64.zip"
 
@@ -16,7 +16,10 @@ function install() {
         curl -O "${url}/${binary}"
     fi
 
+<<<<<<< Updated upstream:install/terraform/osx-bash-install.sh
     # local expected_sha256=$(curl -s ${url}/terraform_0.11.8_SHA256SUMS | grep ${binary} | awk '{print $1}')
+=======
+>>>>>>> Stashed changes:install/terraform/osx-install.sh
     # local sha256=$(openssl sha256 "${binary}" | awk '{print $2}')
     # if [[ "${sha256}" != "${expected_sha256}" ]]; then
     #     echo "${binary} hash mismatch: ${sha256}"
