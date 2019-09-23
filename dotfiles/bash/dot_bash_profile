@@ -152,7 +152,8 @@ fi
 # *** Machine Specific ********************************************************
 
 if [[ `hostname` == "tlangfor-mac" ]]; then
-    alias kill-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
+    alias stop-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl stopoas"
+    alias start-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl startoas"
 fi
 
 
