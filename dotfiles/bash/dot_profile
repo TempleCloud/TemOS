@@ -17,3 +17,5 @@ if [ "occam" == `hostname` ]; then
     alias start-dropbox="${HOME}/.dropbox-dist/dropboxd"
 fi
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
