@@ -125,7 +125,11 @@ fi
 # *** kubernetes **************************************************************
 
 # bash-completion package should be installed first.
-[ ! -z $(which kubectl) ] && source <(kubectl completion bash)
+
+# TODO: Fix this error when no kubectl is installed.
+# /usr/bin/which: no kubectl in (/home/t...
+
+# [ ! -z $(which kubectl) ] && source <(kubectl completion bash)
 
 # *** nvm ********************************************************************
 
