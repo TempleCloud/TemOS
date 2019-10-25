@@ -22,7 +22,3 @@ export NVM_DIR="$HOME/.nvm"
 # These scripts pre-pend to path
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH=/home/tlangfor/temos/bin:$PATH
-
-[[ -e "/home/tlangfor/temos/lib/oracle-cli/lib/python3.6/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/tlangfor/temos/lib/oracle-cli/lib/python3.6/site-packages/oci_cli/bin/oci_autocomplete.sh"
