@@ -79,8 +79,14 @@ fi
 
 # *** java ********************************************************************
 
+# if [ "$(uname)" == "Linux" ]; then
+#     export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+# fi
+# [ -d "${JAVA_HOME}" ] && export PATH=${PATH}:${JAVA_HOME}/bin
+
+# /usr/java/jdk-11.0.5
 if [ "$(uname)" == "Linux" ]; then
-    export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+    export JAVA_HOME="/usr/java/jdk-11.0.5"
 fi
 [ -d "${JAVA_HOME}" ] && export PATH=${PATH}:${JAVA_HOME}/bin
 
@@ -88,11 +94,10 @@ fi
 # *** golang ******************************************************************
 
 export GOPATH="${HOME}/Work/dev/golang"
-# [ -d "${GOPATH}" ] && export PATH=$PATH:$GOPATH/bin
 
-# if [ "$(uname)" == "Darwin" ]; then
-#     echo "TODO: Define brew path."
-# fi
+if [ "$(uname)" == "Darwin" ]; then
+    [ -d "${GOPATH}" ] && export PATH=$PATH:$GOPATH/bin
+fi
 
 if [ "$(uname)" == "Linux" ]; then
     # export GOROOT=/usr/local/go
@@ -126,7 +131,11 @@ fi
 # *** kubernetes **************************************************************
 
 # bash-completion package should be installed first.
-[ ! -z $(which kubectl) ] && source <(kubectl completion bash)
+
+# TODO: Fix this error when no kubectl is installed.
+# /usr/bin/which: no kubectl in (/home/t...
+
+# [ ! -z $(which kubectl) ] && source <(kubectl completion bash)
 
 # *** nvm ********************************************************************
 

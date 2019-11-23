@@ -53,6 +53,7 @@ call minpac#add('rust-lang/rust.vim')
 call minpac#add('racer-rust/vim-racer')
 call minpac#add('fatih/vim-go')
 
+let g:go_version_warning = 0 "Disable error message for Vim 8.0
 
 "== editor configuration ======================================================
 

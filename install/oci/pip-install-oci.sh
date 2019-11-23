@@ -30,8 +30,6 @@ function py27-install() {
     rm oci-cli-${version}.zip
     deactivate
     rm -R venv
-
 }
-
 
 $@

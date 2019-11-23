@@ -14,7 +14,7 @@ DEFAULT_FTP_PROXY="${DEFAULT_HTTP_PROXY}"
 DEFAULT_RSYNC_PROXY="${DEFAULT_HTTP_PROXY}"
 
 
-# enable the default or specified proxy
+# Enable the default or specified proxy
 function proxy-on() {
     local proxy=${DEFAULT_HTTP_PROXY}
     if [[ ! -z "$1" ]]; then
@@ -29,7 +29,7 @@ function proxy-on() {
     export rsync_proxy=${proxy}
 }
 
-# disable the terminal proxies
+# Disable the terminal proxies
 function proxy-off() {
     unset HTTP_PROXY
     unset HTTPS_PROXY
@@ -41,9 +41,22 @@ function proxy-off() {
     unset rsync_proxy
 }
 
+
+# Display the terminal proxies
+function proxy-info() {
+    echo HTTP_PROXY  : $HTTP_PROXY
+    echo HTTPS_PROXY : $HTTPS_PROXY
+    echo NO_PROXY    : $NO_PROXY
+    echo http_proxy  : $http_proxy
+    echo https_proxy : $https_proxy
+    echo no_proxy    : $no_proxy
+    echo ftp_proxy   : $ftp_proxy
+    echo rsync_proxy : $rsync_proxy
+}
+
 function proxy-help() {
-    echo "Bristol: http://www-proxy-hqdc.us.oracle.com:80"
-    echo "HQ     : http://www-proxy-ukc1.uk.oracle.com:80"
+    echo "HQ      : http://www-proxy-hqdc.us.oracle.com:80"
+    echo "Bristol : http://www-proxy-ukc1.uk.oracle.com:80"
 }
 
 alias proxy-list="env | grep proxy | sort"
