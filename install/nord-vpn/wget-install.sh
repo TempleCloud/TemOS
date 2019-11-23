@@ -1,6 +1,22 @@
 #!/bin/bash
 
+# NordVPN
+#
+# https://nordvpn.com
+
+# Install 
+# 
 # https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-and-Linux-Mint.htm
+
+# Featues
+#
+# CyberSec      - https://support.nordvpn.com/General-info/Features/1047407402/What-is-CyberSec.htm
+# KillSwitch    - https://support.nordvpn.com/General-info/Features/1047407832/What-is-a-Kill-Switch-and-how-does-it-work.htm
+# TCP/UDP       - https://support.nordvpn.com/General-info/1047408102/What-are-the-pros-cons-with-TCP-vs-UDP.htm
+# Server Types  - https://support.nordvpn.com/General-info/Features/1047407962/What-do-the-different-server-categories-mean.htm
+#  Onion        - https://support.nordvpn.com/General-info/Features/1047408202/What-is-Onion-and-how-to-use-it.htm
+#  Dedicated IP - https://support.nordvpn.com/General-info/Features/1061840622/Dedicated-IP-addresses.htm
+#  Obfuscated   - https://www.youtube.com/watch?v=aJSCC54wVcg
 
 # Commands 
 # 
