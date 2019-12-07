@@ -20,7 +20,12 @@ export EDITOR=vim
 
 # *** TemOS *******************************************************************
 
-export TEMOS_HOME=${HOME}/temos
+if [ "$(hostname)" == "turing" ]; then
+    export TEMOS_HOME=${HOME}/Work/temos
+else
+    export TEMOS_HOME=${HOME}/temos
+fi
+
 source ${TEMOS_HOME}/init.sh
 export PATH=${PATH}:${TEMOS_HOME}/bin
 
