@@ -133,3 +133,5 @@ sudo apt install dconf-editor
 * [Configure G3 Fractional Scaling](http://ubuntuhandbook.org/index.php/2019/10/how-to-enable-fractional-scaling-in-ubuntu-19-10-eoan/)
 
 * [Configure G3 Fractional Scaling](https://www.omgubuntu.co.uk/2019/06/enable-fractional-scaling-ubuntu-19-04)
+
+
