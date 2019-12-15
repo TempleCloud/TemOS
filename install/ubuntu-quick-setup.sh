@@ -2,6 +2,18 @@
 
 function install() {
 
+    # Configure PKI
+    # ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    # eval "$(ssh-agent -s)"
+    # ssh-add ~/.ssh/id_rsa
+
+    # Ensure large USB devices can be mounted.
+    sudo apt install -y exfat-fuse exfat-utils
+    sudo apt install -y gnome-tweak-tool
+    sudo apt install -y chrome-gnome-shell
+    sudo apt install -y arc-theme
+    gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
     # Configure `bash`.
     pushd ../dotfiles/bash/ > /dev/null
     ./activate-bash.sh
