@@ -79,15 +79,14 @@
             sudo apt install arc-theme
             ```
 
-        * `Pop`
-
-            ```
-            sudo add-apt-repository ppa:system76/pop
-            sudo apt-get update
-            sudo apt-get install pop-theme
-            ```
-
 3. Configure them in `gnome-tweak-tool`.
+
+4. To create a custom theme, or, reference default `Gnome 3` themes, create a link in the `.themes`.
+
+    * [Vanilla Gnome Shell 2](https://askubuntu.com/questions/1060677/how-to-get-default-vanilla-gnome-shell-theme-in-ubuntu-18-04-after-update)
+
+    * [Vanilla Gnome Shell 2](https://askubuntu.com/questions/969657/how-to-install-the-latest-ubuntu-shell-theme-under-ubuntu-with-vanilla-gnome/969667#969667) directory.
+
 
 ---
 
