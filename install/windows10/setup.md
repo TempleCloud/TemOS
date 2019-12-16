@@ -101,6 +101,10 @@
 
     5. Install _firefox-esr_: `sudo apt install firefox-esr`
 
+    6. Install the tools: `sudo apt-get install kali-linux-full`
+    
+        * [Note 1](https://www.simontaplin.net/how-to-install-all-the-penetration-testing-tools-in-kali-linux-for-windows-subsystem-for-linux/)
+
 ---
 
 ## Setup - Apps
