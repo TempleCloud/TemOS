@@ -1,18 +1,35 @@
 #!/bin/bash
 
-function install() {
+# Configure PKI
+# ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_rsa
 
-    # Configure PKI
-    # ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-    # eval "$(ssh-agent -s)"
-    # ssh-add ~/.ssh/id_rsa
+# Ensure large USB devices can be mounted.
+sudo apt install -y exfat-fuse exfat-utils
+sudo apt install -y gnome-tweak-tool
+sudo apt install -y chrome-gnome-shell
+sudo apt install -y arc-theme
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
-    # Ensure large USB devices can be mounted.
-    sudo apt install -y exfat-fuse exfat-utils
-    sudo apt install -y gnome-tweak-tool
-    sudo apt install -y chrome-gnome-shell
-    sudo apt install -y arc-theme
-    gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
+# Languages
+
+# Install Open JDK
+#
+# sudo apt install -y openjdk-8-jdk
+# sudo apt install -y openjdk-11-jdk
+# sudo apt install -y openjdk-13-jdk
+sudo apt install -y openjdk-14-jdk
+
+# Install Python 2
+#
+# sudo apt install python
+
+
+
+function install_dotfiles() {
+
 
     # Configure `bash`.
     pushd ../dotfiles/bash/ > /dev/null

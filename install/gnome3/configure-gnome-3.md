@@ -88,6 +88,12 @@
     * [Vanilla Gnome Shell 2](https://askubuntu.com/questions/969657/how-to-install-the-latest-ubuntu-shell-theme-under-ubuntu-with-vanilla-gnome/969667#969667) directory.
 
 
+    * e.g. `~/.themes/Temple-Dark/gnome-shell/gnome-shell.css
+
+        ```css
+        @import url("/usr/share/gnome-shell/theme/gnome-shell.css");
+        ```
+
 ---
 
 ## 4. Enable Fractional Scaling
@@ -132,5 +138,4 @@ sudo apt install dconf-editor
 * [Configure G3 Fractional Scaling](http://ubuntuhandbook.org/index.php/2019/10/how-to-enable-fractional-scaling-in-ubuntu-19-10-eoan/)
 
 * [Configure G3 Fractional Scaling](https://www.omgubuntu.co.uk/2019/06/enable-fractional-scaling-ubuntu-19-04)
-
 
