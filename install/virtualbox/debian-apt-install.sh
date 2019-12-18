@@ -15,5 +15,17 @@ function install() {
     sudo apt install linux-headers-$(uname -r) dkms
     sudo apt install virtualbox-6.0 
 
+    # Install Extension Pack
+    #
     # wget https://download.virtualbox.org/virtualbox/6.0.0/Oracle_VM_VirtualBox_Extension_Pack-6.0.0.vbox-extpack
+    
+    # Sign 'vboxdrv' kernel module  / Reconfigure
+    #
+    # * https://askubuntu.com/questions/777308/virtualbox-problem-kernel-module-is-not-loaded
+    # * https://askubuntu.com/questions/760671/could-not-load-vboxdrv-after-upgrade-to-ubuntu-16-04-and-i-want-to-keep-secur/768310#768310
+    #
+    # sudo /sbin/vboxconfig
+
+
+
 } && install
