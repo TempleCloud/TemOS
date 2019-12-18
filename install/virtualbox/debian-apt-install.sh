@@ -5,7 +5,7 @@
 # sudo apt update && sudo apt -y upgrade
 
 function install() {
-    sudo apt -y install wget
+
     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 
