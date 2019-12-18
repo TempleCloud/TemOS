@@ -22,6 +22,8 @@ export EDITOR=vim
 
 if [ "$(hostname)" == "turing" ]; then
     export TEMOS_HOME=${HOME}/Work/temos
+elif [ "$(hostname)" == "musashi" ]; then
+    export TEMOS_HOME=${HOME}/Work/temos
 else
     export TEMOS_HOME=${HOME}/temos
 fi
