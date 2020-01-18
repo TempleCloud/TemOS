@@ -111,27 +111,13 @@ sudo apt purge -y --auto-remove tali
 sudo apt purge -y --auto-remove gnome-taquin
 
 sudo apt purge -y --auto-remove hdate-applet
-```
-
-
-
-
-
-
 
 sudo apt-get clean
 sudo apt-get autoremove
-
-
-
-
-
-
-
-sudo apt purge -y --auto-remove mlterm
 ```
 
+11. Get the default gnome-shell back
 
-
-
-
+    ```bash
+    sudo apt install --reinstall gnome-shell-common
+    ```
