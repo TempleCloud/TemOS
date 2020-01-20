@@ -5,6 +5,7 @@
 # https://www.docker.com/
 # https://www.docker.com/docker-ubuntu 
 # https://docs.docker.com/install/linux/docker-ce/ubuntu/#os-requirements
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-debian-10
 #
 
 function install() {
@@ -34,5 +35,5 @@ function install() {
 	sudo usermod -aG docker $USER
 
 	# Test installation.
-	sudo docker run hello-world
+	# sudo docker run hello-world
 } && install

@@ -59,20 +59,18 @@ popd > /dev/null
 # sudo apt install -y apt-transport-https
 # sudo apt update
 # sudo apt install -y code
+#
 # Install: python, c, vim, gitlens plugins
 
 # Install Open JDK
 # 
 # sudo apt install -y openjdk-8-jdk
-# sudo apt install -y default-jdk
+sudo apt install -y default-jdk
 
-# Install Python 2
+# Install Python 2 / s
 # 
-# sudo apt install python
-
-# Install Python 3
-# 
-# sudo apt install python3
+sudo apt install python
+sudo apt install python3
 
 echo "DONE"
 echo
