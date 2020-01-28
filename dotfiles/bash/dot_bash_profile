@@ -24,6 +24,9 @@ if [ "$(hostname)" == "turing" ]; then
     export TEMOS_HOME=${HOME}/Work/temos
 elif [ "$(hostname)" == "musashi" ]; then
     export TEMOS_HOME=${HOME}/Work/temos
+elif [ "$(hostname)" == "tlangfor-linux" ]; then
+    export TEMOS_HOME=${HOME}/temos
+    unset GTK_IM_MODULE
 else
     export TEMOS_HOME=${HOME}/temos
 fi
