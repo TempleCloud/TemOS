@@ -15,7 +15,7 @@ call minpac#add('tpope/vim-fugitive')
 
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('majutsushi/tagbar')
-nmap <F5> :TagbarToggle<CR>
+nmap <F4> :TagbarToggle<CR>
 
 "--- ack / ag
 call minpac#add('mileszs/ack.vim')
@@ -24,7 +24,7 @@ let g:ackprg = 'ag --vimgrep'
 
 "--- NERDTree
 call minpac#add('scrooloose/nerdtree', {'type': 'start'})
-nmap <silent> <F4> :NERDTreeToggle<CR>
+nmap <silent> <F3> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_gui__startup=1
 let g:nerdtree_tabs_open_on_console_startup=1
@@ -33,7 +33,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 "# call minpac#add('ctrlpvim/ctrlp.vim)'
 
 "--- fzf fuzzy match file search
-"# call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})
+call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})
 "# NB: Installed via git - add to vim runtimepath.
 set rtp+=~/.fzf
 
@@ -73,7 +73,7 @@ set backspace=indent,eol,start
 
 "--- paste options
 "# nnoremap <F3> :set invpaste paste?<CR>
-set pastetoggle=<F3>
+set pastetoggle=<F2>
 "# set showmode
 
 
@@ -102,8 +102,8 @@ if has("cscope")
    nmap `<C-\>`f :cs find f `<C-R>`=expand("`<cfile>`")`<CR>``<CR>`
    nmap `<C-\>`i :cs find i ^`<C-R>`=expand("`<cfile>`")`<CR>`$`<CR>`
    nmap `<C-\>`d :cs find d `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
-   nmap <F6> :cnext <CR>
    nmap <F5> :cprev <CR>
+   nmap <F6> :cnext <CR>
 
    " Open a quickfix window for the following queries.
    set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
