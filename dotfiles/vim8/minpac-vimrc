@@ -15,7 +15,7 @@ call minpac#add('tpope/vim-fugitive')
 
 call minpac#add('craigemery/vim-autotag')
 call minpac#add('majutsushi/tagbar')
-nmap <F5> :TagbarToggle<CR>
+nmap <F4> :TagbarToggle<CR>
 
 "--- ack / ag
 call minpac#add('mileszs/ack.vim')
@@ -24,7 +24,7 @@ let g:ackprg = 'ag --vimgrep'
 
 "--- NERDTree
 call minpac#add('scrooloose/nerdtree', {'type': 'start'})
-nmap <silent> <F4> :NERDTreeToggle<CR>
+nmap <silent> <F3> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_gui__startup=1
 let g:nerdtree_tabs_open_on_console_startup=1
@@ -33,7 +33,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 "# call minpac#add('ctrlpvim/ctrlp.vim)'
 
 "--- fzf fuzzy match file search
-"# call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})
+call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})
 "# NB: Installed via git - add to vim runtimepath.
 set rtp+=~/.fzf
 
@@ -73,8 +73,41 @@ set backspace=indent,eol,start
 
 "--- paste options
 "# nnoremap <F3> :set invpaste paste?<CR>
-set pastetoggle=<F3>
+set pastetoggle=<F2>
 "# set showmode
+
+
+if has("cscope")
+   " Look for a 'cscope.out' file starting from the current directory,
+   " going up to the root directory.
+   let s:dirs = split(getcwd(), "/")
+   while s:dirs != []
+           let s:path = "/" . join(s:dirs, "/")
+           if (filereadable(s:path . "/cscope.out"))
+                   execute "cs add " . s:path . "/cscope.out " . s:path . " -v"
+                   break
+           endif
+           let s:dirs = s:dirs[:-2]
+   endwhile
+
+   set csto=0  " Use cscope first, then ctags
+   set cst     " Only search cscope
+   set csverb  " Make cs verbose
+
+   nmap `<C-\>`s :cs find s `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
+   nmap `<C-\>`g :cs find g `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
+   nmap `<C-\>`c :cs find c `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
+   nmap `<C-\>`t :cs find t `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
+   nmap `<C-\>`e :cs find e `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
+   nmap `<C-\>`f :cs find f `<C-R>`=expand("`<cfile>`")`<CR>``<CR>`
+   nmap `<C-\>`i :cs find i ^`<C-R>`=expand("`<cfile>`")`<CR>`$`<CR>`
+   nmap `<C-\>`d :cs find d `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
+   nmap <F5> :cprev <CR>
+   nmap <F6> :cnext <CR>
+
+   " Open a quickfix window for the following queries.
+   set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
+endif
 
 ""== ui Look and feel =========================================================
 

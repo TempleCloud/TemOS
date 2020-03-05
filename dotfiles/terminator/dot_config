@@ -1,0 +1,80 @@
+[global_config]
+  handle_size = 2
+  title_hide_sizetext = True
+  title_transmit_bg_color = "#008bff"
+  title_receive_bg_color = "#fce94f"
+  always_split_with_profile = True
+  title_font = Meslo LG M for Powerline 12
+[keybindings]
+  split_horiz = <Primary><Alt>backslash
+  split_vert = <Primary>backslash
+  next_tab = <Primary>bracketright
+  prev_tab = <Primary>bracketleft
+[profiles]
+  [[default]]
+    background_darkness = 0.09
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+  [[temple]]
+    icon_bell = False
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_shape = ibeam
+    cursor_color = "#aaaaaa"
+    font = Meslo LG M for Powerline 12
+    foreground_color = "#60acec"
+    show_titlebar = False
+    scrollback_lines = 10000
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = True
+      fullscreen = False
+      size = 1920, 1136
+      title = /bin/bash
+      last_active_term = d4e2330c-5764-4ab9-aa83-69558ca7055f
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = temple
+      uuid = d4e2330c-5764-4ab9-aa83-69558ca7055f
+  [[2V Split]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = True
+      fullscreen = False
+      size = 1920, 1136
+      title = /bin/bash
+      last_active_term = d4e2330c-5764-4ab9-aa83-69558ca7055f
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 959
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = temple
+      uuid = d4e2330c-5764-4ab9-aa83-69558ca7055f
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = temple
+      uuid = 036edc0c-6b0d-4cd0-9d46-37c71376b3e1
+[plugins]

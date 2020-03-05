@@ -2,14 +2,23 @@
 
 # Configure PKI
 # 
-# ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-# eval "$(ssh-agent -s)"
-# ssh-add ~/.ssh/id_rsa
+cd .ssh
+ssh-keygen -t rsa -b 4096 -C "tim.langford@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
 # Install bootstrap tools
 # 
 sudo apt install -y curl wget
+
+# Instal and configure Git and Temos
 sudo apt install -y git
+echo "Register default public key with github."
+git config --global user.email "tim.langford@gmail.com"
+git config --global user.name "Tim Langford"
+mkdir ~/Work
+cd ~/Work
+git clone git@github.com:templecloud/temos.git
 
 # Ensure large USB devices can be mounted.
 # 
@@ -33,6 +42,7 @@ popd > /dev/null
 pushd ../dotfiles/bash/ > /dev/null
 ./activate-bash.sh
 popd > /dev/null
+source ~/.bash_profile
 
 # Install `fzf`
 # 
