@@ -1,14 +1,13 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/temple/.fzf/bin* ]]; then
-  export PATH="$PATH:/home/temple/.fzf/bin"
+if [[ ! "$PATH" == */home/tlangfor/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/tlangfor/.fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/temple/.fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "/home/tlangfor/.fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-[ -f ${HOME}/.fzf.bash ] && source "${HOME}/.fzf/shell/key-bindings.bash"
-
+source "/home/tlangfor/.fzf/shell/key-bindings.bash"

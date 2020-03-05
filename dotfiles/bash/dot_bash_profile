@@ -26,6 +26,7 @@ elif [ "$(hostname)" == "musashi" ]; then
     export TEMOS_HOME=${HOME}/Work/temos
 elif [ "$(hostname)" == "tlangfor-linux" ]; then
     export TEMOS_HOME=${HOME}/Work/temos
+    alias apigc="~/virtualenvs/apigc/bin/apigc"
     unset GTK_IM_MODULE
 else
     export TEMOS_HOME=${HOME}/temos
