@@ -53,4 +53,5 @@ function install() {
     sudo dpkg -i ./nordvpn-release_1.0.0_all.deb
     sudo apt update
     sudo apt install nordvpn
-} && instal
+    rm -f nordvpn-release_1.0.0_all.deb
+} && install
