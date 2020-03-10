@@ -6,8 +6,8 @@ fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/tlangfor/.fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "/home/$(whoami)/.fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/home/tlangfor/.fzf/shell/key-bindings.bash"
+source "/home/$(whoami)/.fzf/shell/key-bindings.bash"
