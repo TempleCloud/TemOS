@@ -33,29 +33,34 @@ function install() {
     # Get VirtualBox. Check for new versions first.
     #
     sudo apt update
-    sudo apt install linux-headers-$(uname -r) dkms
-    sudo apt install virtualbox-6.0
+    sudo apt install -y linux-headers-$(uname -r) dkms
+    sudo apt install -y virtualbox-6.0
 
     # Install Extension Pack
     #
-    wget http://download.virtualbox.org/virtualbox/6.0.0/Oracle_VM_VirtualBox_Extension_Pack-6.0.0.vbox-extpack
+    EPV=6.0.0
+    wget http://download.virtualbox.org/virtualbox/${EPV}/Oracle_VM_VirtualBox_Extension_Pack-${EPV}.vbox-extpack
 
     # Get Guest Additions and Manual. Check for new versions first.
     #
-    wget http://download.virtualbox.org/virtualbox/6.0.0/VBoxGuestAdditions_6.0.0.iso
-    wget http://download.virtualbox.org/virtualbox/6.0.0/UserManual.pdf
+    wget http://download.virtualbox.org/virtualbox/${EPV}/VBoxGuestAdditions_${EPV}.iso
+    wget http://download.virtualbox.org/virtualbox/${EPV}/UserManual.pdf
 
+    mkdir -p $HOME/Work/arc/virtualbox
+    mv Oracle_VM_VirtualBox_Extension_Pack-${EPV}.vbox-extpack ../arc/virtualbox
+    mv UserManual.pdf ../arc/virtualbox
 
     # A. Generate a new MOK cert if we do not already have one. 
     #
 
     # 1. If required generate a new MOK cert.
-    openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=turing-kernel-mod-signer/"
+    openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=$HOSTNAME-kernel-mod-signer/"
     # 2.Enroll the key and specify password. Remember the password! Use it to register the MOK on next boot.
     sudo mokutil --import MOK.der
     # 3. Check the key is enrolled
     mokutil --test-key MOK.der
-
+    mkdir -p $HOME/Work/security
+    mv MOK.* $HOME/Work/security
 
     # B. Sign the Virtualbox Kernel Modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci)
     #

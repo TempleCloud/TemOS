@@ -5,7 +5,7 @@
 function install() {
     grep --color --perl-regexp 'vmx|svm' /proc/cpuinfo
     sudo apt update
-    # Install KVM / QEUME
+    # Install KVM / QEMU
     sudo apt install -y qemu qemu-kvm qemu-system qemu-utils
     # Install Virt
     sudo apt install -y libvirt-clients libvirt-daemon-system virtinst
@@ -17,7 +17,7 @@ function install() {
 
     # Add user to groups 
     #
-    # sudo adduser $(whoami) libvirt
-    # sudo adduser $(whoami) libvirt-qemu
-}
+    sudo adduser $(whoami) libvirt
+    sudo adduser $(whoami) libvirt-qemu
+} && install
 
