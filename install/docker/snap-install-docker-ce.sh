@@ -5,4 +5,7 @@
 # https://www.docker.com/
 #
 
-sudo snap install docker
+function install() {
+    sudo snap install docker
+}
+
