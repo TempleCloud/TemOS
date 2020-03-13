@@ -50,24 +50,24 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 # * https://extensions.gnome.org/extension/307/dash-to-dock/
 # * https://extensions.gnome.org/extension/826/suspend-button/
 
-# Powerline
+# Install Powerline
 ${TEMOS}/install/powerline/debian-install-powerline-fonts.sh
 
-# Install and configure Terminator
+# Install Terminator
 sudo apt install -y terminator
 ${TEMOS}/dotfiles/terminator/activate-terminator.sh
 
-# Configure Bash Shell
+# Configure Bash
 ${TEMOS}/dotfiles/bash/activate-bash.sh
 source ~/.bash_profile
 
-# Install and configure FZF
+# Install Fzf
 ${TEMOS}/install/fzf/git-install-fzf.sh
 ${TEMOS}/dotfiles/fzf/activate-fzf.sh
 
-# Install and configure AG
+# Install Ag
 
-# Install and configure Vim
+# Install Vim
 sudo apt install -y vim
 ${TEMOS}/dotfiles/vim8/activate-minpac-vim.sh
 vim +PackUpdate +qall
@@ -81,10 +81,19 @@ sudo apt purge -y --auto-remove libreoffice-* thunderbird cheese totem shotwell 
 sudo apt-get clean
 sudo apt-get autoremove
 
-# Install and configure NordVPN
+# NordVPN
 ${TEMOS}/install/nord-vpn/wget-install.sh 
 # nordvpn login / nordvpn connect, etc.
 
+# Virtual Box
+${TEMOS}/install/virtualbox/debian-apt-install.sh
+# MOK KEY generation - This script creates a MOK key. Rebbot to register it.
+
+# KVM/QEMU
+${TEMOS}/install/kvm/linux-apt-install.sh
+
+# Docker
+${TEMOS}/install/docker/apt-install-docker-ce.sh
 
 
 
