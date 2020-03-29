@@ -77,11 +77,16 @@ if [ -d "${HOME}/.local/bin" ]; then
     export PATH="$PATH:${HOME}/.local/bin"
 fi
 
+# *** dotnet ******************************************************************
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+
 # *** flutter *****************************************************************
 
 if [ -d "${TEMOS_BIN}/flutter/bin" ]; then
     export FLUTTER_HOME="${TEMOS_BIN}/flutter"
     export PATH=${PATH}:"${FLUTTER_HOME}/bin"
+    # flutter config --no-analytics
 fi
 
 # *** fzf *********************************************************************
@@ -101,6 +106,11 @@ fi
 if [ "$(uname)" == "Linux" ]; then
     export JAVA_HOME="/usr/java/jdk-11.0.5"
 fi
+
+if [ "$(hostname)" == "occam" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+fi
+
 [ -d "${JAVA_HOME}" ] && export PATH=${PATH}:${JAVA_HOME}/bin
 
 
