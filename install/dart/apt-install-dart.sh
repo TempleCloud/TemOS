@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Install Dart
+#
+# https://dart.dev/get-dart
+
 function install() {
     # Add repository
     sudo apt-get update
@@ -13,4 +17,7 @@ function install() {
     # sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list > /etc/apt/sources.list.d/dart_unstable.list'
     # sudo apt-get update
     # sudo apt-get install dart
+
+    # Add to path
+    # export PATH="$PATH:/usr/lib/dart/bin"
 } && install
