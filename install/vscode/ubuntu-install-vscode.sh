@@ -13,10 +13,5 @@ function install() {
     sudo apt-get install -y apt-transport-https
     sudo apt update
     sudo apt install -y code
-} && install
+} && install 
 
-function install-rpm() {
-    curl -L "https://go.microsoft.com/fwlink/?LinkID=760868" > vscode.deb
-    sudo apt install ./vscode.deb
-    rm vscode.deb
-}
