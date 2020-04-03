@@ -20,18 +20,13 @@ export EDITOR=vim
 
 # *** TemOS *******************************************************************
 
-if [ "$(hostname)" == "turing" ]; then
-    export TEMOS_HOME=${HOME}/Work/temos
-elif [ "$(hostname)" == "optimus" ]; then
-    export TEMOS_HOME=${HOME}/Work/temos
-elif [ "$(hostname)" == "musashi" ]; then
-    export TEMOS_HOME=${HOME}/Work/temos
-elif [ "$(hostname)" == "tlangfor-linux" ]; then
+if [ "$(hostname)" == "tlangfor-linux" ]; then
     export TEMOS_HOME=${HOME}/Work/temos
     alias apigc="~/virtualenvs/apigc/bin/apigc"
     unset GTK_IM_MODULE
 else
-    export TEMOS_HOME=${HOME}/temos
+    # Currently the default home for temos on most machines.
+    export TEMOS_HOME=${HOME}/Work/temos
 fi
 
 source ${TEMOS_HOME}/init.sh
