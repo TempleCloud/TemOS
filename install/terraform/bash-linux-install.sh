@@ -8,7 +8,8 @@ set -e
 # https://www.terraform.io/downloads.html
 
 function install() {
-    local version="0.12.5"
+    # local version="0.12.5"
+    local version="0.12.24"
     local url="https://releases.hashicorp.com/terraform/${version}"
 
     local binary="terraform_${version}_linux_amd64.zip"
