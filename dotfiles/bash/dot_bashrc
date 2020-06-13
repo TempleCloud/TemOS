@@ -26,3 +26,15 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=/home/tlangfor/temos/bin:$PATH
 
 [[ -e "/home/temple/Work/temos/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/temple/Work/temos/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh"
+
+export PATH=/home/temple/bin:$PATH
+
+[[ -e "/home/temple/Work/temos/bin/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/temple/Work/temos/bin/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh"
+
+export PATH=/home/temple/bin/Work/temos/bin:$PATH
+
+[[ -e "/home/temple/lib/oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/temple/lib/oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh"
+
+export PATH=/home/temple/Work/temos/bin:$PATH
+
+[[ -e "/home/temple/Work/temos/lib/oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/temple/Work/temos/lib/oracle-cli/lib/python3.8/site-packages/oci_cli/bin/oci_autocomplete.sh"
