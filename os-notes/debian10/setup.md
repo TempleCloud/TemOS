@@ -67,50 +67,50 @@
     temos/dotfiles/git/update-repos.sh
     ```
 
-10. Delete any excess crud.
+10. Delete any excess GNOME crud.
 
     ```bash
-    sudo apt purge -y --auto-remove gnome-calculator
-    sudo apt purge -y --auto-remove gnome-calendar
-    sudo apt purge -y --auto-remove gnome-clocks
-    sudo apt purge -y --auto-remove gnome-contacts
-    sudo apt purge -y --auto-remove gnome-documents
-    sudo apt purge -y --auto-remove gnome-maps
-    sudo apt purge -y --auto-remove gnome-music
-    sudo apt purge -y --auto-remove gnome-weather
-    sudo apt purge -y --auto-remove gnome-sound-recorder
-    sudo apt purge -y --auto-remove gnome-todo
-    sudo apt purge -y --auto-remove totem
-    sudo apt purge -y --auto-remove shotwell
-    sudo apt purge -y --auto-remove rhythmbox
-    sudo apt purge -y --auto-remove simple-scan
-    sudo apt purge -y --auto-remove libreoffice-*
-    sudo apt purge -y --auto-remove fcitx-*
-    sudo apt purge -y --auto-remove uim-*
-    sudo apt purge -y --auto-remove mozc-*
-    sudo apt purge -y --auto-remove mlterm-*
-    sudo apt purge -y --auto-remove xiterm+thai
-    sudo apt purge -y --auto-remove im-config
-    sudo apt purge -y --auto-remove anthy kasumi
-    sudo apt purge -y --auto-remove goldendict
-    sudo apt purge -y --auto-remove aisleriot
-    sudo apt purge -y --auto-remove five-or-more
-    sudo apt purge -y --auto-remove four-in-a-row
-    sudo apt purge -y --auto-remove hitori
-    sudo apt purge -y --auto-remove iagno
-    sudo apt purge -y --auto-remove gnome-klotski
-    sudo apt purge -y --auto-remove gnome-mines
-    sudo apt purge -y --auto-remove gnome-robots
-    sudo apt purge -y --auto-remove gnome-mahjongg
-    sudo apt purge -y --auto-remove gnome-nibbles
-    sudo apt purge -y --auto-remove lightsoff
-    sudo apt purge -y --auto-remove gnome-sudoku
-    sudo apt purge -y --auto-remove gnome-tetravex
-    sudo apt purge -y --auto-remove swell-foop
-    sudo apt purge -y --auto-remove quadrapassel
-    sudo apt purge -y --auto-remove tali
-    sudo apt purge -y --auto-remove gnome-taquin
-    sudo apt purge -y --auto-remove hdate-applet
+sudo apt purge -y --auto-remove libreoffice-*
+sudo apt purge -y --auto-remove totem
+sudo apt purge -y --auto-remove shotwell
+sudo apt purge -y --auto-remove rhythmbox
+sudo apt purge -y --auto-remove simple-scan
+sudo apt purge -y --auto-remove fcitx-*
+sudo apt purge -y --auto-remove uim-*
+sudo apt purge -y --auto-remove mozc-*
+sudo apt purge -y --auto-remove mlterm-*
+sudo apt purge -y --auto-remove xiterm+thai
+sudo apt purge -y --auto-remove im-config
+sudo apt purge -y --auto-remove anthy kasumi
+sudo apt purge -y --auto-remove goldendict
+sudo apt purge -y --auto-remove hdate-applet
+sudo apt purge -y --auto-remove gnome-calculator
+sudo apt purge -y --auto-remove gnome-calendar
+sudo apt purge -y --auto-remove gnome-clocks
+sudo apt purge -y --auto-remove gnome-contacts
+sudo apt purge -y --auto-remove gnome-documents
+sudo apt purge -y --auto-remove gnome-maps
+sudo apt purge -y --auto-remove gnome-music
+sudo apt purge -y --auto-remove gnome-weather
+sudo apt purge -y --auto-remove gnome-sound-recorder
+sudo apt purge -y --auto-remove gnome-todo
+sudo apt purge -y --auto-remove gnome-klotski
+sudo apt purge -y --auto-remove gnome-mines
+sudo apt purge -y --auto-remove gnome-robots
+sudo apt purge -y --auto-remove gnome-mahjongg
+sudo apt purge -y --auto-remove gnome-nibbles
+sudo apt purge -y --auto-remove gnome-sudoku
+sudo apt purge -y --auto-remove gnome-tetravex
+sudo apt purge -y --auto-remove swell-foop
+sudo apt purge -y --auto-remove quadrapassel
+sudo apt purge -y --auto-remove gnome-taquin
+sudo apt purge -y --auto-remove tali
+sudo apt purge -y --auto-remove lightsoff
+sudo apt purge -y --auto-remove aisleriot
+sudo apt purge -y --auto-remove five-or-more
+sudo apt purge -y --auto-remove four-in-a-row
+sudo apt purge -y --auto-remove hitori
+sudo apt purge -y --auto-remove iagno
     ```
 
     ```bash
