@@ -72,6 +72,14 @@ if [ -d "${HOME}/.local/bin" ]; then
     export PATH="$PATH:${HOME}/.local/bin"
 fi
 
+
+# *** deno **********************************************************************
+
+if [ -d "${HOME}/.deno/bin" ]; then
+    export DENO_INSTALL="${HOME}/.deno"
+    export PATH="$DENO_INSTALL/bin:$PATH"
+fi
+
 # *** dotnet ******************************************************************
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
@@ -108,10 +116,7 @@ if [ "$(hostname)" == "occam" ]; then
     export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 fi
 
-
-
 [ -d "${JAVA_HOME}" ] && export PATH=${PATH}:${JAVA_HOME}/bin
-
 
 # *** golang ******************************************************************
 
@@ -170,7 +175,6 @@ fi
 
 [ -d "$HOME/.cargo/bin" ] && export PATH=$PATH:$HOME/.cargo/bin
 
-
 # *** kvm/virsh **************************************************************
 
 if [ "$(uname)" == "Linux" ]; then
@@ -179,7 +183,6 @@ fi
 
 # *** END *********************************************************************
 
-
 # *** Machine Specific ********************************************************
 
 if [[ `hostname` == "tlangfor-mac" ]]; then
@@ -187,6 +190,9 @@ if [[ `hostname` == "tlangfor-mac" ]]; then
     alias start-mcafee="sudo /usr/local/McAfee/AntiMalware/VSControl startoas"
 fi
 
+# *** Dev Specific ************************************************************
+
+[ -d "$HOME/Work/spaces/faasinate/faasinate-cli" ] && export PATH=$PATH:$HOME/Work/spaces/faasinate/faasinate-cli
 
 
 # NB: These scritpts prepend to PATH. 
@@ -199,4 +205,3 @@ fi
 # if [ -f "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/temos/bin/google-cloud-sdk/completion.bash.inc"; fi
 
 
-export PATH="$HOME/.cargo/bin:$PATH"
